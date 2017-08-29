@@ -1,0 +1,11 @@
+
+<import src="../grade-template/grade-template.wxml" />
+
+<template name="movie-poster">
+  <view class="poster-container">
+    <image class="poster-img" src="{{coverageUrl}}"></image>
+    <text class="poster-title">{{title}}</text>
+    <!-- 赋值需要的两个参数传入  -->
+    <template is="movie-grade" data="{{average:average,stars:stars}}"></template>
+  </view>
+</template>

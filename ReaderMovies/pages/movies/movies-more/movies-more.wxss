@@ -1,0 +1,5 @@
+/* pages/movies/movies-more/movies-more.wxss */
+@import "../moviesingle-template/moviesingle-template.wxss" ;
+.more-container {
+  padding:40rpx 0 0 10rpx;
+}

@@ -1,0 +1,16 @@
+/* pages/movies/poster-template/poster-template.wxss */
+@import "../grade-template/grade-template.wxss";
+
+.poster-container {
+  display:flex;
+  flex-direction:column;
+  padding: 0 22rpx;
+}
+.poster-img {
+  width:200rpx;
+  height:270rpx;
+  padding-bottom:20rpx;
+}
+.poster-title {
+  margin-bottom:16rpx;
+}

@@ -1,0 +1,6 @@
+<!--pages/movies/movies-more/movies-more.wxml-->
+<import src="../moviesingle-template/moviesingle-template.wxml" />
+
+<view class="more-container">
+  <template is="movie-single" data="{{movies}}"></template>
+</view>

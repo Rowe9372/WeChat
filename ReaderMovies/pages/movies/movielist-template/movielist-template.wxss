@@ -1,0 +1,33 @@
+/* pages/movies/movielist-template/movielist-template.wxss */
+@import "poster-template/poster-template.wxss";
+
+.movielist-container {
+  display:flex;
+  flex-direction:column;
+  background-color:#fff;
+}
+.movie-navigation {
+  padding:30rpx 22rpx 22rpx 22rpx ;
+}
+.slogan {
+  font-size:24rpx;
+}
+.more {
+  float:right;
+  margin-right:22rpx;
+}
+.more text {
+  color:#1f4ba5;
+  vertical-align:middle;
+  margin-right: 10rpx;
+  font-size:24rpx;
+}
+.more image {
+  width:16rpx;
+  height: 16rpx;
+  vertical-align:middle;
+}
+.movielist-poster {
+  display:flex;
+  flex-direction:row;
+}

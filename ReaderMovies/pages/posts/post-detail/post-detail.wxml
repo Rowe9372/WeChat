@@ -1,0 +1,25 @@
+<!-- 详情页 -->
+<view class="container">
+  <image class="detail-banner" src="{{isPlayingMusic?postdata.music.coverImage:postdata.post_img}}">
+  <!-- isPlayingMusic 判断音乐是否在播放 -->
+    <image class="music" catchtap="onMusicTap" src="{{isPlayingMusic? '/images/icon/pause.png':'/images/icon/music-on.png'}}"></image>
+  </image>
+  <view class="author-data">
+    <image class="author-avatar" src="{{postdata.author_img}}"></image>
+    <text class="author-name">{{postdata.authorName}}</text>
+    <text class="publish">发表于</text>
+    <text class="publish-date">{{postdata.date}}</text>
+  </view>
+  <text class="article-title">{{postdata.title}}</text>
+  <view class="product-function">
+    <view class="function-button">
+      <!-- 收藏/分享 前端功能 -->
+      <image wx:if="{{collected}}" catchtap="onCollectionTap" class="function-collect" src="/images/icon/collected.png"></image>
+      <image wx:else class="function-collect" catchtap="onCollectionTap" src="/images/icon/collect.png"></image>
+      <image wx:if="{{shared}}" catchtap="onShareTap" class="function-share" src="/images/icon/shared.png"></image>
+      <image wx:else catchtap="onShareTap" class="function-share" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <text class="article-text">{{postdata.articalText}}</text>
+</view>

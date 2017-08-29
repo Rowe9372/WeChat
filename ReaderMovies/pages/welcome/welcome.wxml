@@ -1,0 +1,9 @@
+<!-- wxml编写小程序骨架文件  -->
+<view class="container">
+  <image class="user-avatar" src="/images/avatar/avatar_1.png"></image>
+  <text class="user-name">Hello <text class="feature">feature</text></text>
+  <!-- 事件 bind不会阻止事件冒泡  catch会阻止事件冒泡 -->
+  <view class="greet" bindtap="tapeName">
+   <text>你好，未来</text>
+  </view>
+</view>

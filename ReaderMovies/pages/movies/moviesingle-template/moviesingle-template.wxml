@@ -1,0 +1,9 @@
+<import src="../movielist-template/poster-template/poster-template.wxml" />
+
+  <template name="movie-single">
+  <scroll-view scroll-x="false" scroll-y="true" bindscrolltolower="onScrolltolower" class="single-container">
+    <block wx:for="{{movies}}" wx:for-item="movies">
+      <template is="movie-poster" data="{{...movies}}"></template>
+    </block>
+  </scroll-view>
+  </template>

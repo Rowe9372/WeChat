@@ -1,0 +1,71 @@
+<!-- 引用 template -->
+<import src="posts-template/posts-template.wxml" />
+
+<!-- 通告页面 -->
+<view class="container">
+<!-- swiper poster -->
+  <!-- vertical="true" 垂直轮播 -->
+  <swiper catchtap="onSwiperTap" class="swiper-poster" indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image data-postid="0" src="/images/post/shangguqingge.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-postid="1" src="/images/post/shenyeshitang.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/xianyiren-X.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/haibiandemanqiesite.jpg"></image>
+    </swiper-item>
+  </swiper>
+
+<!-- template 模板 -->
+<block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx"> 
+<!--data="{{...item}}" 在posts-template.wxml中可以去掉item ， ... 相当于把posts-data.js里面的数据铺开-->
+  <view catchtap="onTapDetail" data-postid="{{item.postId}}">
+    <template is="postItem" data="{{...item}}" />
+  </view>
+  
+</block>
+
+
+<!-- NEW Posts -->
+  <view class="post-container">
+    <view class="author">
+    <!-- wx:if = "true/false" 控制元素显隐 -->
+      <image wx:if="{{post1.condition}}" class="author-icon" src="{{post1.img.author_img}}"></image>
+      <text class="author-date">{{post1.date}}</text>
+    </view>
+    <text class="post-title">{{post1.title}}</text>
+    <image class="post-image" src="{{post1.img.post_img}}"></image>
+    <text class="post-content">{{post1.content}}</text>
+    <view class="post-dynamic">
+      <image src="../../images/icon/like.png"></image>
+      <text>{{post1.like}}</text>
+      <image src="../../images/icon/browse.png"></image>
+      <text>{{post1.browse}}</text>
+    </view>
+  </view>
+
+<!-- for 循环 -->
+<block wx:for="{{posts_key}}" wx:for-item="item"> 
+  <view class="post-container">
+    <view class="author">
+      <image class="author-icon" src="{{item.author_img}}"></image>
+      <text class="author-date">{{item.date}}</text>
+    </view>
+    <text class="post-title">{{item.title}}</text>
+    <image class="post-image" src="{{item.post_img}}"></image>
+    <text class="post-content">{{item.content}}</text>
+    <view class="post-dynamic">
+      <image src="../../images/icon/like.png"></image>
+      <text>{{item.like}}</text>
+      <image src="../../images/icon/browse.png"></image>
+      <text>{{item.browse}}</text>
+    </view>
+  </view>
+</block>
+  
+
+</view>

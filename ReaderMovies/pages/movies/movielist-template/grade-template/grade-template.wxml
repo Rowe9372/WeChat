@@ -1,0 +1,13 @@
+<!--pages/movies/grade-template/grade-template.wxml-->
+<template name="movie-grade">
+  <view class="grade-container">
+    <view class="stars">
+      <block wx:for="{{stars}}" wx:for-item="stars">
+        <image wx:if="{{stars == 1}}" src="/images/icon/star-bright.png"></image>
+        <image wx:elif="{{stars == 2}}" src="/images/icon/star-half.png"></image>
+        <image wx:else="{{stars == 0}}" src="/images/icon/star.png"></image>
+      </block>
+    </view>
+    <text class="star-score">{{average}}</text>
+  </view>
+</template>

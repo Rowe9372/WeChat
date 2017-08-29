@@ -1,0 +1,8 @@
+<!-- 电影页 -->
+<import src="movielist-template/movielist-template.wxml" />
+
+<view class="container">
+  <template is="movielist" data="{{...inTheaters}}"></template>
+  <template is="movielist" data="{{...comingSoon}}"></template>
+  <template is="movielist" data="{{...doubanTop}}"></template>
+</view>

@@ -1,0 +1,16 @@
+/* @import "" 引入template 样式 */
+@import "posts-template/posts-template.wxss";
+
+.container {
+  width:100%;
+}
+.container .swiper-poster {
+  width:100%;
+  height:322rpx;
+}
+.container .swiper-poster image {
+  width:100%;
+  height:322rpx;
+}
+
+

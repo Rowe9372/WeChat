@@ -1,0 +1,23 @@
+/* pages/movies/grade-template/grade-template.wxss */
+.grade-container{
+  display:flex;
+  flex-direction:row;
+}
+.stars {
+  display:flex;
+  flex-direction:row;
+  height:17rpx;
+  margin-right:24rpx;
+  margin-top:6rpx;
+}
+.stars image {
+  margin-left:3rpx;
+  height:17rpx;
+  width:17rpx;
+  vertical-align:middle;
+  
+}
+.star-score {
+  color:#1f3463;
+  vertical-align:middle;
+}
