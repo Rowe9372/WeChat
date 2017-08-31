@@ -53,10 +53,10 @@ PAI ： wx.navigateTo 保留页面，可以返回原页面
 - 获取缓存： wx.getStorage({key:'',success:function(res){}}) 异步获取
             wx.getStorageSync('key')  同步获取
 
-- 清楚指定缓存： wx.removeStorage({key:'key',success:function(res){}}) 异步删除
+- 清除指定缓存： wx.removeStorage({key:'key',success:function(res){}}) 异步删除
                 wx.removeStorageSync('key')  同步删除
 
-- 清楚所有缓存： wx.clearStorage()   异步删除
+- 清除所有缓存： wx.clearStorage()   异步删除
                 wx.clearStorageSync()  同步删除
 
 - 缓存问题：真机没有清楚缓存的方法，要清楚缓存需要在应用程序页面给个"按钮",调用清除API
