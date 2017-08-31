@@ -1,0 +1,168 @@
+
+## WeChat
+[微信公众平台](https://mp.weixin.qq.com/)
+
+[开发者文档](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html?t=201769)
+
+[ES6阮一峰教程](http://es6.ruanyifeng.com/#README)
+
+[豆瓣API](https://developers.douban.com/wiki/?title=guide)
+[微博开放平台](http://open.weibo.com/)
+[GitHub Developer](https://developer.github.com/)
+
+- 小程序控制大小 1MB
+
+#### 快捷方式
+- `alt+shift+f` 代码格式化 或鼠标右键>格式化代码
+- `ctrl+p` 快速打开文件搜索
+
+### chapter 3 
+>RPX
+
+- 微信自适应单位 RPX 
+ 1、逻辑单位rpx = 物理单位px/2 （1:2 关系）  iphone6 宽750px  1px = 1rpx 1:1关系
+
+- 移动设备分辨率与RPX
+
+### chapter 4
+>swiper
+
+- vertical = "true" 纵向滑动
+
+>数据绑定
+
+- 单项数据绑定
+- 数据解析 
+` "String" ` 当字符串解析 ` "{{data}}" ` 当数据解析
+`wx:if="{{true/false}}"` 控制元素的显隐 
+- 小程序事件机制
+事件：bind 不会阻止事件冒泡  catch 会阻止事件冒泡
+PAI ： wx.navigateTo 保留页面，可以返回原页面  
+       wx.redirectTo 关闭当前页面，跳转到应用内某个页面
+
+### chapter 5
+
+- require 引用js模块
+ 模块js ： 设置出口 ` modile.exports = {  }`
+ 引用js : ` var postData = require("path") `
+
+- templata 模板的使用
+ 目前技术支持只能引用wxml 和 wxss  js脚本不能生效
+ wxml   引用文件 ： ` <import src="path" /> ` 页面顶部  
+        引用位置 ` <template is="模板名name" /> `
+ wxss   引用文件 ：` @import "path";`
+
+### chapter 6
+- Storage 缓存基本使用  总体最大不能超过10MB
+- 设置缓存： wx.setStorage({key:'',data:''}) 异步缓存 
+            wx.setStorageSync ('key','value')同步缓存
+
+- 获取缓存： wx.getStorage({key:'',success:function(res){}}) 异步获取
+            wx.getStorageSync('key')  同步获取
+
+- 清楚指定缓存： wx.removeStorage({key:'key',success:function(res){}}) 异步删除
+                wx.removeStorageSync('key')  同步删除
+
+- 清楚所有缓存： wx.clearStorage()   异步删除
+                wx.clearStorageSync()  同步删除
+
+- 缓存问题：真机没有清楚缓存的方法，要清楚缓存需要在应用程序页面给个"按钮",调用清除API
+
+### chapter 7
+
+- tab 选项卡
+
+ 1、wx.switchTab 跳转到带有tabBar 的页面，且只能用这个跳转 
+ redirectTo / navigateTo 跳转到无tabBar页面
+ ```
+    onTabBarTap:function(event){
+        wx.switchTab({
+                url:"/index"
+            })
+    }
+ ```
+
+2、在App.json中设置tabBar
+```
+    {
+  "tabBar": {
+    "list": [{
+      "pagePath": "index",
+      "text": "首页"
+    },{
+      "pagePath": "other",
+      "text": "其他"
+    }]
+  }
+}
+
+```
+
+- RESTful API
+
+```
+wx.request({
+      url: url,
+      data: {},
+      method: "GET", // Option: GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT   
+      header: {
+        'content-type': 'json'
+      },
+      success: function (res) {
+        console.log(res);
+       
+      },
+      fail: function (error) {
+
+      },
+      complete: function () {
+
+      }
+    })
+```
+
+- 豆瓣API （通过豆瓣API 获取数据）
+
+### chapter 8 
+
+- 滑动加载
+1、下拉加载更多 组件`<scroll-view>` 需要一个固定的高度 
+
+
+- loading 设置 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Other 
+#### 移动端适配
+```
+
+淘宝网的rem适配方法 1rem = 100px;
+(function(win, doc) {
+    var baseWidth = 640;  //设计图尺寸
+    var documentHTML = doc.documentElement;
+
+    function setRootFont() {
+        var docWidth = documentHTML.getBoundingClientRect().width;
+        var scale = docWidth / baseWidth;
+        // if (docWidth > baseWidth) {
+        //     scale = 0.5;
+        // }
+        documentHTML.style.fontSize = scale * 100 + 'px';
+    }
+    setRootFont();
+    win.addEventListener('resize', setRootFont, false);
+})(window, document);
+
+```
