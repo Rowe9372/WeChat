@@ -74,6 +74,7 @@ Page({
       totalMovies = movies;
       this.data.movieEmpty = false;
     }else{
+      //concat 同之前数据合并在一起
       totalMovies = this.data.movies.concat(movies);
     }
     this.setData({
@@ -86,12 +87,14 @@ Page({
 
   //上滑加载更多
   onScrolltolower:function(){
-    console.log("上滑加载更多");
+    //console.log("上滑加载更多");
     var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + "&count=20";
     util.getMovieListData(nextUrl, this.processDoubanData);
 
     //loading设置
     wx.showNavigationBarLoading();
+    //停止下拉刷新事件
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -130,7 +133,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+      //console.log("下拉刷新");
+      var refreshUrl = this.data.requestUrl + "?start=0&conut=20";
+      //this.data.movies = {};
+      //this.data.movieEmpty = false;
+      this.setData({
+        movies:{},
+        movieEmpty:true
+      }); 
+      util.getMovieListData(refreshUrl,this.processDoubanData);
 
+      //loading
+      wx.showNavigationBarLoading();
   },
 
   /**

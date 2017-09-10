@@ -74,7 +74,7 @@ PAI ： wx.navigateTo 保留页面，可以返回原页面
 
  1、wx.switchTab 跳转到带有tabBar 的页面，且只能用这个跳转 
  redirectTo / navigateTo 跳转到无tabBar页面
- ```
+ ```js
     onTabBarTap:function(event){
         wx.switchTab({
                 url:"/index"
@@ -83,7 +83,7 @@ PAI ： wx.navigateTo 保留页面，可以返回原页面
  ```
 
 2、在App.json中设置tabBar
-```
+```js
     {
   "tabBar": {
     "list": [{
@@ -100,7 +100,7 @@ PAI ： wx.navigateTo 保留页面，可以返回原页面
 
 - RESTful API
 
-```
+```js
 wx.request({
       url: url,
       data: {},
